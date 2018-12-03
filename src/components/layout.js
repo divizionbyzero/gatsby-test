@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
 import Header from './header'
+import Archive from './archive'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -14,6 +14,19 @@ const Layout = ({ children }) => (
           siteMetadata {
             title
             description
+          }
+        }
+        allMarkdownRemark {
+          totalCount
+          edges {
+            node {
+              excerpt
+              frontmatter {
+                title
+                slug
+                date(formatString: "MMMM DD, YY")
+              }
+            }
           }
         }
       }
@@ -38,8 +51,10 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
+          <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html, }}></div>
           {children}
         </div>
+        <Archive />
       </>
     )}
   />
