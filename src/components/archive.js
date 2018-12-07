@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
-
 const POST_ARCHIVE_QUERY = graphql`
     query BlogPostArchive {
         allMarkdownRemark(limit: 3, sort: {
@@ -34,7 +33,7 @@ const Archive = () => (
             <h3>Archive</h3>
             <ul>
                 {allMarkdownRemark.edges.map(({ node }) => (
-                    <li key={node.id}>
+                    <li key={node.frontmatter.slug}>
                     <Link to={`/posts${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
                         <ItemWrap>
                             <ItemDate>{node.frontmatter.date}</ItemDate>
@@ -49,9 +48,6 @@ const Archive = () => (
   />
 )
 
-Archive.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Archive
 

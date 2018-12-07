@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import styled from 'styled-components';
 
-import gatsbyLogo from '../images/gatsby-icon.png'
+import logo from '../images/logo.svg'
 
-const logoInlineStyle = {width: '100px',}
+const HeaderWrapper = styled.div`
+  background: #524763;
+  margin-bottom: 1.45rem;
+  img {
+    margin-bottom: 0;
+  }
+`;
+
+const HeaderContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0.3rem;
+`;
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
+  <HeaderWrapper>
+    <HeaderContainer>
       <h1 style={{ margin: 0 }}>
-      <img style={logoInlineStyle} src={gatsbyLogo} alt='GL' />
         <Link
           to="/"
           style={{
@@ -29,11 +29,17 @@ const Header = ({ siteTitle }) => (
             textDecoration: 'none',
           }}
         >
-          {siteTitle}
+          <img
+            style={{
+              width: '100px',
+            }}
+            src={logo}
+            alt="Level Up Tutorials Logo"
+          />
         </Link>
       </h1>
-    </div>
-  </div>
+    </HeaderContainer>
+  </HeaderWrapper>
 )
 
 export default Header
