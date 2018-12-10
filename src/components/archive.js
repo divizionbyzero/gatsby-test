@@ -31,7 +31,7 @@ const Archive = () => (
       <>
         <Wrap>
             <h3>Archive</h3>
-            <ul>
+            <ArchiveList>
                 {allMarkdownRemark.edges.map(({ node }) => (
                     <li key={node.frontmatter.slug}>
                     <Link to={`/posts${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
@@ -41,7 +41,7 @@ const Archive = () => (
                         </ItemWrap>
                     </li>
                 ))}
-            </ul>
+            </ArchiveList>
         </Wrap>
       </>
     )}
@@ -62,4 +62,8 @@ const ItemWrap = styled.div`
 const ItemDate = styled.span`
     font-size: 14px;
     opacity: 0.5;
+`
+
+const ArchiveList = styled.ul`
+    list-style-type: none;
 `

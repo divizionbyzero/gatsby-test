@@ -18,12 +18,22 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-image',
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/posts`,
         name: 'posts'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images'
       }
     },
     'gatsby-transformer-remark'
