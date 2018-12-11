@@ -15,3 +15,4 @@ collections:
     fields: 
       - { label: "Team Member", name: "title", widget: "string" }
       - { label: "Bio", name: "bio", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }
